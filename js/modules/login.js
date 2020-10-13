@@ -17,13 +17,13 @@ export default {
         <p id="info"></p>
     `,
 
-    
+
     
     verificar:function(){
         var txt1 = document.getElementById('txt1');
         var txt2 = document.getElementById('txt2');
         var info = document.getElementById('info');
-
+        
     
         if(txt1.value=="" && txt2.value==""){
             info.style.background="red";
@@ -31,8 +31,13 @@ export default {
             info.innerHTML="¡¡Porfavor verificar campos vacios!!";
             
         }else{
-            
-        
+            var arr= this.usuarios.filter(usuario => usuario.nombre == txt1);
+            info.style.background="green";
+            info.style.color="white";
+            info.innerHTML="<h3>Datos</h3>"
+            info.innerHTML=
+
+
         }
     },
 };

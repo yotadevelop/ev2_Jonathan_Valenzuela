@@ -3,10 +3,10 @@ export default {
 
     data: `
         autor<h1>Jonathan Valenzuela</h1>
-        Total de vidas: <p id="vida">0</p>
+        Total de vidas: <div id="vida">0</div>
         <button>Flor</button>
         <button>Pluma</button>
-        <button>Pierde</button>
+        <button onclick="pierde">Pierde</button>
     `,
     
     

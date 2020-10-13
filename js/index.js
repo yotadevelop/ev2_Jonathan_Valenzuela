@@ -3,6 +3,7 @@ import mario from "./modules/mario.js";
  
 var resp= document.getElementById('resp');
 window.verificar= login.verificar;
+window.pierde= mario.pierde;
 
 document.getElementById('login').addEventListener("click", ()=>{
     resp.innerHTML = login.data;
