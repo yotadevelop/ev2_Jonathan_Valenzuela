@@ -8,36 +8,47 @@ export default {
         {login:'ccortes',pass:123,nombre:'Cesar', apellido:"Cortes",fono:'3344555',cargo:'Chofer' }                
     ], 
     data: `
-        autor:<h1>Jonathan Valenzuela</h1>
-        Login <br/>
-        <input id="txt1" type="text"/> <br/>
-        Pass <br/>
-        <input id="txt2" type="password"/> <br/>
-        <button onclick="verificar()">verificar</button>
-        <p id="info"></p>
+        <br><br><br>
+        autor: <b>JONATHAN VALENZUELA</b> <br><br>
+            Login <br>
+            <input id="txt1" type="text"/> <br>
+            Pass <br>
+            <input id="txt2" type="password"/> <br>
+            <button onclick="verificar()">verificar</button>
+            <p id="info"></p>
     `,
 
 
     
     verificar:function(){
-        var txt1 = document.getElementById('txt1');
-        var txt2 = document.getElementById('txt2');
-        var info = document.getElementById('info');
+        var txt1 = document.getElementById("txt1").value;
+        var txt2 = document.getElementById("txt2").value;
+        var info = document.getElementById("info");
         
     
-        if(txt1.value=="" && txt2.value==""){
+    
+
+        if(txt1=="" || txt2==""){
             info.style.background="red";
             info.style.color="white";
             info.innerHTML="¡¡Porfavor verificar campos vacios!!";
             
         }else{
-            var arr= this.usuarios.filter(usuario => usuario.nombre == txt1);
-            info.style.background="green";
+            var usu= this.usuarios.filter(usuario => usuario.login == txt1 && usuario.pass == txt2);
+            if(usu.length == 0){
+                info.style.background="red";
+                info.style.color="white";
+                info.innerHTML="No se encontro usuario";
+            }else{ 
+            info.style.background="green"
             info.style.color="white";
-            info.innerHTML="<h3>Datos</h3>"
-            info.innerHTML=
-
-
+            info.innerHTML=`
+                Nombre: ${usu[0].nombre} ${usu[0].apellido} <br>
+                Fono: ${usu[0].fono}<br>
+                Cargo: ${usu[0].cargo}<br>
+            `;
+            
+            }
         }
     },
 };
