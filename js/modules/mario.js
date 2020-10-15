@@ -16,45 +16,38 @@ export default {
 
     flor:function () {
         var im=document.getElementById("img");
-        var life = document.getElementById("life");
-        var est = this.mario.estado;
-        
-
-        est = "fuego";
+           
+        this.mario.estado="fuego";
         im.src="img/flor.png";
-        
-    
         
     },
 
     pluma:function () {
         var im=document.getElementById("img");
-        var life = document.getElementById("life");
-        var est = this.mario.estado;
-        
 
-        est="volador";
+        this.mario.estado="volador";
         im.src="img/capa.png";
+        
     },
 
     pierde:function () {
         var im=document.getElementById("img");
         var life = document.getElementById("life");
-        var est = this.mario.estado;
-        var vida = this.mario.vidas;
-        
-        im.src="img/normal.png";
-        if(est=="fuego" || est=="volador"){
-            est=="normal";
-            life.innerHTML=vida;
-         }
-        
-         if(est=="normal"){
-            vida= vida - 1;
-            life.innerHTML=vida;
-        }
         
         
+    
+        if(this.mario.estado=="fuego" || this.mario.estado=="volador"){
+            im.src="img/normal.png";
+            this.mario.estado="normal"
+        }else {
+            this.mario.vidas = (this.mario.vidas - 1);
+            if(this.mario.vidas>=0){
+                life.innerHTML=`${this.mario.vidas}`;
+            }else{
+                life.innerHTML="TE HAS QUEDADO SIN VIDAS";
+            }
+            
+        }        
     },
 
 }
